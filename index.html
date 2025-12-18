@@ -4,157 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 11 Month Anniversary Bebe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap');
-
         :root {
             --primary-pink: #ff4d6d;
             --dark-pink: #c9184a;
-            --bg-color: #fff0f3;
+            --soft-pink: #ffb3c1;
+            --glass: rgba(255, 255, 255, 0.2);
         }
 
-        body {
-            margin: 0;
-            padding: 0;
+        body, html {
+            margin: 0; padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
+            background: #fff0f3;
             overflow-x: hidden;
-            color: #333;
+            scroll-behavior: smooth;
         }
 
         /* Sparkles & Hearts Background */
         #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            position: fixed; width: 100%; height: 100%;
+            z-index: -1; top: 0; left: 0;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffb3c1 100%);
         }
 
-        /* Top Header */
+        /* LOGIN POPUP (Babal Interface) */
+        #login-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 40px; border-radius: 30px;
+            text-align: center; border: 1px solid var(--primary-pink);
+            box-shadow: 0 0 40px rgba(255, 77, 109, 0.4);
+            width: 320px;
+            transform: translateY(0);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .login-box h2 { 
+            color: white; font-family: 'Dancing Script', cursive; 
+            font-size: 2.5rem; margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 90%; padding: 12px; margin: 10px 0;
+            border: none; border-radius: 15px;
+            background: rgba(255,255,255,0.9); outline: none;
+        }
+
+        .login-box button {
+            background: var(--primary-pink); color: white; border: none;
+            padding: 12px 35px; border-radius: 25px; cursor: pointer;
+            font-weight: bold; margin-top: 15px; transition: 0.3s;
+        }
+
+        /* MAIN CONTENT */
+        .main-content { display: none; }
+
         .top-header {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 77, 109, 0.1);
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--dark-pink);
-            border-bottom: 2px solid var(--primary-pink);
+            text-align: center; padding: 30px;
+            background: rgba(255, 77, 109, 0.15);
+            backdrop-filter: blur(10px);
+            font-family: 'Dancing Script', cursive; font-size: 2.8rem;
+            color: var(--dark-pink); border-bottom: 2px solid var(--primary-pink);
         }
 
-        /* Hero Section */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 700px; margin: auto; padding: 20px; }
 
-        /* 3D Box Style */
+        /* 3D Glass Card Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-            transform-style: preserve-3d;
-            transition: transform 0.5s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 25px; padding: 30px;
+            margin: 50px 0; position: relative;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05), -10px -10px 40px rgba(255,255,255,0.8);
+            transition: 0.5s; transform-style: preserve-3d;
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
         .glass-card:hover {
-            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+            transform: perspective(1000px) rotateX(5deg) rotateY(2deg);
         }
 
-        /* Popup Logic */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .popup {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 20px var(--primary-pink);
-        }
-        .popup h2 { color: var(--dark-pink); }
-        .popup button {
-            background: var(--primary-pink);
-            color: white;
-            border: none;
-            padding: 10px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1rem;
+        .tilted { transform: perspective(1000px) rotateZ(-2deg); }
+
+        .section-title {
+            text-align: center; font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem; color: var(--dark-pink); margin-bottom: 20px;
         }
 
-        /* Sections */
-        h2.section-title {
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
-            color: var(--dark-pink);
-            margin-bottom: 10px;
-        }
-
-        .date-box, .fav-box {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
+        /* Elements Styling */
         .item {
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-pink);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-            font-size: 1.1rem;
+            background: white; padding: 15px; border-radius: 15px;
+            margin: 10px 0; border-left: 6px solid var(--primary-pink);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.02);
+            font-size: 1.1rem; display: flex; justify-content: space-between;
         }
 
-        .heart-icon {
-            font-size: 50px;
-            text-align: center;
-            display: block;
-            margin-bottom: -20px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        .heart-3d {
+            font-size: 60px; position: absolute; top: -45px; left: 42%;
+            filter: drop-shadow(0 10px 15px rgba(255, 77, 109, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .shayari-box {
-            font-style: italic;
-            text-align: center;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #444;
+            text-align: center; font-style: italic; font-size: 1.3rem;
+            line-height: 1.8; color: #444; padding: 20px;
+            border: 2px dashed var(--primary-pink); border-radius: 20px;
         }
 
-        .wish-text {
-            line-height: 1.6;
-            font-size: 1.1rem;
-            text-align: center;
+        /* Babal Thank You UI Box */
+        .thank-you-box {
+            background: var(--dark-pink); color: white;
+            padding: 40px; border-radius: 30px; text-align: center;
+            margin-top: 60px; border: 5px solid var(--primary-pink);
+            box-shadow: 0 15px 40px rgba(201, 24, 74, 0.4);
         }
 
-        footer {
-            text-align: center;
-            padding: 50px;
-            background: var(--dark-pink);
-            color: white;
-            border-radius: 50px 50px 0 0;
-            margin-top: 50px;
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .floating { animation: float 3s ease-in-out infinite; }
+        .thank-you-box h2 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin: 0; }
+        .thank-you-box p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
 
     </style>
 </head>
@@ -162,92 +142,100 @@
 
 <div id="particles-js"></div>
 
-<div class="overlay" id="overlay">
-    <div class="popup">
-        <h2>Hey! Jana </h2>
-        <p>You Misses...</p>
-        <button onclick="closePopup()">Open Love Note</button>
+<div id="login-overlay">
+    <div class="login-box">
+        <h2>You Special ❤️</h2>
+        <input type="text" id="userName" placeholder="Enter Name...">
+        <input type="password" id="userPass" placeholder="Password (19 Jan)">
+        <button onclick="checkLogin()">Open My Heart</button>
+        <p id="error" style="color:#ffb3c1; font-size: 12px; display:none; margin-top:10px;">Oops! Wrong Password Bebe.</p>
     </div>
 </div>
 
-<div class="top-header">Happy 11 Month Anniversary my Wifeyyyyy ❤️</div>
+<div class="main-content" id="mainContent">
+    <div class="top-header">Happy 11 Month Anniversary my Wifeyyyyy ❤️</div>
 
-<div class="container">
-    
-    <div class="glass-card">
-        <h2 class="section-title">Happy 11 Month Anniversary My जाना!</h2>
-        <div class="wish-text">
-            <p>Aapne humko itna support kiya, Mera hamesha itna sath diya | Hamesha aaise hi sath dijiyega.Abhi pata bhi nhi chala aur humne itni jaldi 11 mahine ki Aniversary par agaye hainnn  ❤️</p>
-            <p>Hum hamesha yehi sochte Hain ki mera har pal aapke sath  hi Guzre. Aaise hi hum sath rahen. Time spend karen Aur Life ko special banayen. Aap meri Zindagi ki sabse eham insan hain meri Hayati 🌼💫</p>
+    <div class="container">
+        
+        <div class="glass-card">
+            <h2 class="section-title">Happy 11 Month Anniversary My जाना!</h2>
+            <div style="text-align: center; line-height: 1.8; font-size: 1.1rem;">
+                <p>Aapne humko itna support kiya, mera hamesha itna sath diya... Hamesha aise hi sath dijiyega. ❤️</p>
+                <p>Abhi pata bhi nahi chala aur hum itni jaldi <b>11 mahine</b> ki Anniversary par aa gaye hain! Hum hamesha yehi sochte hain ki mera har pal aapke sath hi guzre. Aise hi hum sath rahein, time spend karein aur life ko special banayein. Aap meri zindagi ki sabse eham insan hain, meri Hayati 🌼💫</p>
+            </div>
         </div>
-    </div>
 
-    <span class="heart-icon floating">❤️</span>
-    <div class="glass-card">
-        <h2 class="section-title">Important Dates</h2>
-        <div class="date-box">
-            <div class="item">📅 19 January 2025</div>
-            <div class="item">💌 27 September 2024</div>
-            <div class="item">🎀 28 September 2009</div>
+        <div class="glass-card">
+            <span class="heart-3d">📅</span>
+            <h2 class="section-title">Important Dates</h2>
+            <div class="item"><span>Anniversary</span> <b>19 January 2025</b></div>
+            <div class="item"><span>Our Special Day</span> <b>27 September 2024</b></div>
+            <div class="item"><span>The Beginning</span> <b>28 September 2009</b></div>
         </div>
-    </div>
 
-    <span class="heart-icon floating">💖</span>
-    <div class="glass-card" style="transform: rotate(-2deg);">
-        <h2 class="section-title">Your Favorite Things</h2>
-        <div class="fav-box">
-            <div class="item">🖤 <b>Favorite Color:</b> Black</div>
-            <div class="item">🥤 <b>Favorite Drink:</b> Almond Drink </div>
-            <div class="item">🏠 <b>Favorite Place:</b> Hubby's Heart</div>
-            <div class="item">⏳ <b>Favorite Time:</b> Time with Hubby</div>
-            <div class="item">👤 <b>Favorite Person:</b> Sir Jii ❤️</div>
-            <div class="item">🥟 <b>Favorite Food:</b> Momos</div>
-            <div class="item">🎧 <b>Favourite song:</b>Mere Humsafar, Ek Tarfa</div>
+        <div class="glass-card tilted">
+            <span class="heart-3d">💖</span>
+            <h2 class="section-title">Your Favorite Things</h2>
+            <div class="item"><span>Color:</span> <b>Black 🖤</b></div>
+            <div class="item"><span>Drink:</span> <b>Almond Drink 🥤</b></div>
+            <div class="item"><span>Place:</span> <b>Hubby's Heart 🏠</b></div>
+            <div class="item"><span>Time:</span> <b>Time with Hubby ⏳</b></div>
+            <div class="item"><span>Person:</span> <b>Sir Jii ❤️</b></div>
+            <div class="item"><span>Food:</span> <b>Momos 🥟</b></div>
+            <div class="item"><span>Song:</span> <b>Mere Humsafar, Ek Tarfa 🎧</b></div>
         </div>
-        <span class="heart-icon" style="margin-top: 20px;">💘</span>
-    </div>
 
-    <div class="glass-card">
-        <h2 class="section-title">सिर्फ तुम्हारे लिए</h2>
-        <div class="shayari-box">
-            वो पूछते हैं हमसे कि क्या हुआ है तुम्हें,<br>
-            अब कैसे बताएं उन्हें कि उनसे ही मोहब्बत हुई है!<br><br>
-            Aap मेरी वो हिम्मत हो जिसे मैं कभी खोना नहीं चाहता,<br>
-            Aap मेरा वो सुकून हो जो मुझे दुनिया में कहीं नहीं मिलता।
+        <div class="glass-card">
+            <h2 class="section-title">Specially For You</h2>
+            <div class="shayari-box">
+                Aapki loving care aur respect ne mujhe pura badal diya,<br>
+                Aap hi meri real strength ho, mera sabse bada sahara...<br><br>
+                Suunne mein toh yeh sirf 11 mahine hain jaana,<br>
+                Magar aapne mujhe har lamha jina sikhaya!<br>
+                <br>
+                <small style="color: var(--primary-pink); font-weight: bold;">— Your Loving Hubby</small>
+            </div>
         </div>
-    </div>
 
+        <div class="thank-you-box">
+            <h2>Thank You! ❤️</h2>
+            <p>Thanks for your love, your care, and for being so supportive.</p>
+            <div style="font-size: 1.1rem; font-style: italic; margin-top: 15px;">
+                "Keep Supporting, Keep Loving & Keep Smiling"
+            </div>
+            <div style="font-size: 2.5rem; margin-top: 20px; font-weight: bold;">U & Me Forever</div>
+        </div>
+
+    </div>
 </div>
-
-<footer>
-    <div class="glass-card" style="background: rgba(255,255,255,0.2); color: white; border: none;">
-        <h2>Thank You For Everything! ❤️</h2>
-        <p>Thanks for your love, your care, and for being YOU. Keep supporting, keep loving!</p>
-        <p style="font-size: 2rem;">U & Me Forever</p>
-    </div>
-</footer>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-    function closePopup() {
-        document.getElementById('overlay').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    function checkLogin() {
+        const pass = document.getElementById('userPass').value;
+        if(pass === "19 Jan" || pass === "19 jan") {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            startSparkles();
+        } else {
+            document.getElementById('error').style.display = 'block';
+        }
     }
 
-    /* Sparkles Effect */
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#ff4d6d" },
-            "shape": { "type": "heart" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 5, "random": true },
-            "line_linked": { "enable": false },
-            "move": { "enable": true, "speed": 2, "direction": "top" }
-        }
-    });
+    function startSparkles() {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ff4d6d" },
+                "shape": { "type": "heart" },
+                "opacity": { "value": 0.6 },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 3, "direction": "top" }
+            }
+        });
+    }
 </script>
 
 </body>
 </html>
-  
+                
