@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 11 Month Anniversary Bebe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap');
+
+        :root {
+            --primary-pink: #ff4d6d;
+            --dark-pink: #c9184a;
+            --bg-color: #fff0f3;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* Sparkles & Hearts Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Top Header */
+        .top-header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 77, 109, 0.1);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--dark-pink);
+            border-bottom: 2px solid var(--primary-pink);
+        }
+
+        /* Hero Section */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 3D Box Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+        }
+
+        /* Popup Logic */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px var(--primary-pink);
+        }
+        .popup h2 { color: var(--dark-pink); }
+        .popup button {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        h2.section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: var(--dark-pink);
+            margin-bottom: 10px;
+        }
+
+        .date-box, .fav-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .item {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-pink);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            text-align: center;
+            display: block;
+            margin-bottom: -20px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .shayari-box {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .wish-text {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: var(--dark-pink);
+            color: white;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="overlay" id="overlay">
+    <div class="popup">
+        <h2>Hey! Jana </h2>
+        <p>You Misses...</p>
+        <button onclick="closePopup()">Open Love Note</button>
+    </div>
+</div>
+
+<div class="top-header">Happy 11 Month Anniversary my Wifeyyyyy ❤️</div>
+
+<div class="container">
+    
+    <div class="glass-card">
+        <h2 class="section-title">Happy 11 Month Anniversary My जाना!</h2>
+        <div class="wish-text">
+            <p>Aapne humko itna support kiya, Mera hamesha itna sath diya | Hamesha aaise hi sath dijiyega.Abhi pata bhi nhi chala aur humne itni jaldi 11 mahine ki Aniversary par agaye hainnn  ❤️</p>
+            <p>Hum hamesha yehi sochte Hain ki mera har pal aapke sath  hi Guzre. Aaise hi hum sath rahen. Time spend karen Aur Life ko special banayen. Aap meri Zindagi ki sabse eham insan hain meri Hayati 🌼💫</p>
+        </div>
+    </div>
+
+    <span class="heart-icon floating">❤️</span>
+    <div class="glass-card">
+        <h2 class="section-title">Important Dates</h2>
+        <div class="date-box">
+            <div class="item">📅 19 January 2025</div>
+            <div class="item">💌 27 September 2024</div>
+            <div class="item">🎀 28 September 2009</div>
+        </div>
+    </div>
+
+    <span class="heart-icon floating">💖</span>
+    <div class="glass-card" style="transform: rotate(-2deg);">
+        <h2 class="section-title">Your Favorite Things</h2>
+        <div class="fav-box">
+            <div class="item">🖤 <b>Favorite Color:</b> Black</div>
+            <div class="item">🥤 <b>Favorite Drink:</b> Almond Drink </div>
+            <div class="item">🏠 <b>Favorite Place:</b> Hubby's Heart</div>
+            <div class="item">⏳ <b>Favorite Time:</b> Time with Hubby</div>
+            <div class="item">👤 <b>Favorite Person:</b> Sir Jii ❤️</div>
+            <div class="item">🥟 <b>Favorite Food:</b> Momos</div>
+            <div class="item">🎧 <b>Favourite song:</b>Mere Humsafar, Ek Tarfa</div>
+        </div>
+        <span class="heart-icon" style="margin-top: 20px;">💘</span>
+    </div>
+
+    <div class="glass-card">
+        <h2 class="section-title">सिर्फ तुम्हारे लिए</h2>
+        <div class="shayari-box">
+            वो पूछते हैं हमसे कि क्या हुआ है तुम्हें,<br>
+            अब कैसे बताएं उन्हें कि उनसे ही मोहब्बत हुई है!<br><br>
+            Aap मेरी वो हिम्मत हो जिसे मैं कभी खोना नहीं चाहता,<br>
+            Aap मेरा वो सुकून हो जो मुझे दुनिया में कहीं नहीं मिलता।
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="glass-card" style="background: rgba(255,255,255,0.2); color: white; border: none;">
+        <h2>Thank You For Everything! ❤️</h2>
+        <p>Thanks for your love, your care, and for being YOU. Keep supporting, keep loving!</p>
+        <p style="font-size: 2rem;">U & Me Forever</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* Sparkles Effect */
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ff4d6d" },
+            "shape": { "type": "heart" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 5, "random": true },
+            "line_linked": { "enable": false },
+            "move": { "enable": true, "speed": 2, "direction": "top" }
+        }
+    });
+</script>
+
+</body>
+</html>
+  
